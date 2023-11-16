@@ -57,8 +57,8 @@ gamma_max_rate                               15000
 a_axis_max_speed                             15000
 delta_max_rate                               15000
 
-b_axis_max_speed                             10000
-epsilon_max_rate                             10000
+b_axis_max_speed                             90000
+epsilon_max_rate                             90000
 
 c_axis_max_speed                             10000
 zeta_max_rate                                10000
@@ -82,7 +82,7 @@ gamma_dir_pin                                0.20!
 gamma_en_pin                                 0.19
 
 delta_step_pin                               2.3
-delta_dir_pin                                0.22!
+delta_dir_pin                                0.22
 delta_en_pin                                 0.21
 
 epsilon_step_pin                             2.4
@@ -101,10 +101,10 @@ zeta_en_pin                                  0.23
 
 alpha_current                                1.0
 beta_current                                 1.2
-gamma_current                                0.6
+gamma_current                                1.2
 delta_current                                0.6
-epsilon_current                              0.1
-zeta_current                                 0.1
+epsilon_current                              1.2
+zeta_current                                 0.6
 
 ##################################
 ##################################
@@ -112,12 +112,13 @@ zeta_current                                 0.1
 
 # STEPS PER MILLIMETER
 
-alpha_steps_per_mm                           80.0
-beta_steps_per_mm                            80.0
-gamma_steps_per_mm                           400.0
-delta_steps_per_mm                           400.0
-epsilon_steps_per_mm                         768
-zeta_steps_per_mm                            768
+alpha_steps_per_mm                           629.92
+beta_steps_per_mm                            800
+gamma_steps_per_mm                           503.937
+# gamma_steps_per_mm                           400.0
+delta_steps_per_mm                           3200.0
+epsilon_steps_per_mm                         800
+zeta_steps_per_mm                            3200
 
 ##################################
 ##################################
@@ -130,14 +131,14 @@ endstop_debounce_ms                          2
 # X endstop
 endstop.minx.axis                            X
 endstop.minx.enable                          true
-endstop.minx.limit_enable                    true
+endstop.minx.limit_enable                    false
 endstop.minx.pin                             1.24!^
 endstop.minx.pin_revA                        1.24!-
-endstop.minx.homing_direction                home_to_max
-endstop.minx.homing_position                 421
-endstop.minx.max_travel                      430
-endstop.minx.fast_rate                       100
-endstop.minx.slow_rate                       8
+endstop.minx.homing_direction                home_to_min
+endstop.minx.homing_position                 0
+endstop.minx.max_travel                      300
+endstop.minx.fast_rate                       16
+endstop.minx.slow_rate                       2
 endstop.minx.retract                         3
 
 # Y endstop
@@ -146,51 +147,53 @@ endstop.miny.enable                          true
 endstop.miny.limit_enable                    false
 endstop.miny.pin                             1.25!^
 endstop.miny.pin_revA                        1.25!-
-endstop.miny.homing_direction                home_to_max
-endstop.miny.homing_position                 353
-endstop.miny.max_travel                      370
-endstop.miny.fast_rate                       100
-endstop.miny.slow_rate                       5
-endstop.miny.retract                         0
+endstop.miny.homing_direction                home_to_min
+endstop.miny.homing_position                 0
+endstop.miny.max_travel                      300
+endstop.miny.fast_rate                       16
+endstop.miny.slow_rate                       2
+endstop.miny.retract                         3
 
 # Z endstop
 endstop.minz.axis                            Z
 endstop.minz.enable                          true
-endstop.minz.limit_enable                    true
-endstop.minz.pin                             1.26^
+endstop.minz.limit_enable                    false
+endstop.minz.pin                             1.26!^
 endstop.minz.pin_revA                        1.26-
-endstop.minz.homing_direction                home_to_max
-endstop.minz.homing_position                 220
-endstop.minz.max_travel                      230
-endstop.minz.fast_rate                       60
-endstop.minz.slow_rate                       5
+endstop.minz.homing_direction                home_to_min
+endstop.minz.homing_position                 0
+endstop.minz.max_travel                      60
+endstop.minz.fast_rate                       4.167
+endstop.minz.slow_rate                       1
 endstop.minz.retract                         2
 
 # A endstop
 endstop.mina.axis                            A
 endstop.mina.enable                          true
-endstop.mina.limit_enable                    true
-endstop.mina.pin                             1.27^
+endstop.mina.limit_enable                    false
+endstop.mina.pin                             1.27!^
 endstop.mina.pin_revA                        1.27-
-endstop.mina.homing_direction                home_to_max
-endstop.mina.homing_position                 220
-endstop.mina.max_travel                      230
-endstop.mina.fast_rate                       60
-endstop.mina.slow_rate                       5
+endstop.mina.homing_direction                home_to_min
+endstop.mina.homing_position                 0
+endstop.mina.max_travel                      60
+endstop.mina.fast_rate                       4.167
+endstop.mina.slow_rate                       1
 endstop.mina.retract                         2
 
 # B endstop
 endstop.minb.axis                            B
 endstop.minb.enable                          true
-endstop.minb.limit_enable                    true
-endstop.minb.pin                             1.28^
-endstop.minb.pin_revA                        1.28-
-endstop.minb.homing_direction                home_to_max
-endstop.minb.homing_position                 20
-endstop.minb.max_travel                      30
-endstop.minb.fast_rate                       25
+endstop.minb.limit_enable                    false
+# endstop.minb.pin                             1.28!^
+# endstop.minb.pin_revA                        1.28!-
+endstop.minb.pin                             1.25!^
+endstop.minb.pin_revA                        1.25!-
+endstop.minb.homing_direction                home_to_min
+endstop.minb.homing_position                 0
+endstop.minb.max_travel                      300
+endstop.minb.fast_rate                       11
 endstop.minb.slow_rate                       2
-endstop.minb.retract                         2
+endstop.minb.retract                         0
 
 # C endstop
 endstop.minc.axis                            C
@@ -200,10 +203,10 @@ endstop.minc.pin                             1.29^
 endstop.minc.pin_revA                        1.29-
 endstop.minc.homing_direction                home_to_max
 endstop.minc.homing_position                 20
-endstop.minc.max_travel                      30
-endstop.minc.fast_rate                       25
-endstop.minc.slow_rate                       2
-endstop.minc.retract                         2
+endstop.minc.max_travel                      200
+endstop.minc.fast_rate                       8.33
+endstop.minc.slow_rate                       1
+endstop.minc.retract                         1
 
 ##################################
 ##################################
@@ -260,10 +263,11 @@ kill_button_enable                           true
 kill_button_pin                              2.12
 
 msd_disable                                  true
-home_z_first                                 false
+home_z_first                                 true
 currentcontrol_module_enable                 true
 
-digipot_factor_rev12                         113.3
+# digipot_factor_rev12                         113.3
+digipot_factor_rev12                         51.55
 digipot_factor                               128
 
 ##################################

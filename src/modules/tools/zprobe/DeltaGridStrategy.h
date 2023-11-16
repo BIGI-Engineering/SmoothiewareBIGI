@@ -4,7 +4,7 @@
 
 #include <string.h>
 #include <tuple>
-
+#include <cstdint>
 #define delta_grid_leveling_strategy_checksum CHECKSUM("delta-grid")
 
 class StreamOutput;

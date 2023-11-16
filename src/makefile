@@ -47,7 +47,8 @@ endif
 ifneq "$(OS)" "Windows_NT"
 BUILD_VERSION=$(shell ./generate-version.sh)
 else
-BUILD_VERSION=$(shell generate-version.bat)
+# BUILD_VERSION=$(shell generate-version.bat)
+BUILD_VERSION="BIGIv0.0.47"
 endif
 DEFINES += -D__GITVERSIONSTRING__=\"$(BUILD_VERSION)\"
 
@@ -138,5 +139,5 @@ console:
 	( cat <&3 & cat >&3 ; kill %% ) 3<>$(CONSOLE)
 
 copyhex: ../LPC1768/$(PROJECT).hex
-	mkdir -p ../firmwarebin
-	$(COPY) $< ../firmwarebin/smoothie-$(BUILD_VERSION).hex
+	mkdir firmwarebin 2>NUL
+	$(COPY) $< /firmwarebin/smoothie-$(BUILD_VERSION).hex
